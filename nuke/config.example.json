@@ -1,0 +1,5 @@
+{
+  "python_exe": "C:/path/to/UniSHARP-for-Nuke/.venv-nuke/Scripts/python.exe",
+  "checkpoint": "C:/path/to/UniSHARP-for-Nuke/checkpoints/pretained_model.pt",
+  "output_root": "C:/path/to/UniSHARP-for-Nuke/Nuke_Output"
+}

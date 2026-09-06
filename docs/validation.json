@@ -1,0 +1,182 @@
+{
+  "benchmark_date": "2026-09-06",
+  "environment": {
+    "platform": "Windows",
+    "nuke": "17.0v3",
+    "python": "3.11.8",
+    "torch": "2.8.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 3070",
+    "physical_gpu_memory_gib": 8
+  },
+  "source_image": {
+    "source_page": "https://commons.wikimedia.org/wiki/File:Living_room_(Unsplash).jpg",
+    "download_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Living_room_%28Unsplash%29.jpg",
+    "author": "Jaroslaw Ceborski",
+    "original_source": "https://unsplash.com/photos/jn7uVeCdf6U",
+    "license": "CC0 1.0 (per Wikimedia Commons file page, uploaded before June 2017)",
+    "width": 5346,
+    "height": 3568,
+    "bytes": 2147730,
+    "sha256": "98e196f52a67abb96e04c6a33694d1710ea885797e01ae2d52b7bba9f747893b",
+    "upscaled": false
+  },
+  "render_size": [
+    5346,
+    3568
+  ],
+  "runs": {
+    "512": {
+      "processed": {
+        "width": 512,
+        "height": 342,
+        "max_long_edge": 512
+      },
+      "backbone": {
+        "resolution_level": 0,
+        "width": 560,
+        "height": 378,
+        "pixels_min": 200000.0,
+        "pixels_max": 240000.0,
+        "description": "Backbone features are resized to the processed image grid before Gaussian prediction."
+      },
+      "gaussian_count": 350208,
+      "inference_seconds": 12.703,
+      "ply_bytes": 23814676,
+      "peak_allocated_gib": 3.765822410583496,
+      "peak_reserved_gib": 4.787109375,
+      "opaque_fraction": 0.99665858049017,
+      "rgb_mae_full_0_255": 6.831418668219033,
+      "rgb_psnr_full_db": 25.31752675077788,
+      "rgb_mae_common_opaque_0_255": 6.585688051317092,
+      "rgb_psnr_common_opaque_db": 25.7072120271063
+    },
+    "1024": {
+      "processed": {
+        "width": 1024,
+        "height": 683,
+        "max_long_edge": 1024
+      },
+      "backbone": {
+        "resolution_level": 0,
+        "width": 602,
+        "height": 406,
+        "pixels_min": 200000.0,
+        "pixels_max": 240000.0,
+        "description": "Backbone features are resized to the processed image grid before Gaussian prediction."
+      },
+      "gaussian_count": 1398784,
+      "inference_seconds": 28.719,
+      "ply_bytes": 95117845,
+      "peak_allocated_gib": 7.6235270500183105,
+      "peak_reserved_gib": 10.533203125,
+      "opaque_fraction": 0.9931371303132639,
+      "rgb_mae_full_0_255": 5.480157045039332,
+      "rgb_psnr_full_db": 27.38534716605028,
+      "rgb_mae_common_opaque_0_255": 5.311352119419964,
+      "rgb_psnr_common_opaque_db": 27.74575010734509
+    }
+  },
+  "metric_space": "8-bit sRGB PNG code values; unaligned same-camera render",
+  "metric_limit": "Image reconstruction difference only, not geometric accuracy or original-detail recovery.",
+  "common_opaque_fraction": 0.9905235925103887,
+  "memory_note": "PyTorch allocator peaks; reserved memory is not measured physical VRAM residency, especially on Windows WDDM.",
+  "ocio_output_checks": {
+    "default": {
+      "status": "passed",
+      "sample": [
+        0.9702386856079102,
+        0.9687440395355225,
+        0.8996896147727966,
+        1.0
+      ],
+      "conversion_in": "linear",
+      "conversion_out": "scene_linear"
+    },
+    "aces13": {
+      "status": "passed",
+      "sample": [
+        0.9663886427879333,
+        0.9679200053215027,
+        0.9087103009223938,
+        1.0
+      ],
+      "conversion_in": "Linear Rec.709 (sRGB)",
+      "conversion_out": "scene_linear"
+    },
+    "aces20": {
+      "status": "passed",
+      "sample": [
+        0.9663886427879333,
+        0.9679200053215027,
+        0.9087103009223938,
+        1.0
+      ],
+      "conversion_in": "Linear Rec.709 (sRGB)",
+      "conversion_out": "scene_linear"
+    }
+  },
+  "verified_operations": [
+    "Nuke input-frame export",
+    "external CUDA inference",
+    "native SplatRender at source resolution",
+    "translated-camera render",
+    "save and reopen with preserved edited camera",
+    "cancel and restore controls",
+    "result-only Viewer and Show Result without error dialogs"
+  ],
+  "scope": "Benchmarks are measured from the local Nuke integration. Source-only package checks are recorded separately; timings are one image on this machine, not general performance guarantees.",
+  "public_package_validation": {
+    "package": "UniSHARP-for-Nuke",
+    "status": "passed",
+    "compile": {
+      "status": "passed",
+      "python_file_count": 67
+    },
+    "unit_tests": {
+      "status": "passed",
+      "exit_code": 0,
+      "test_count": 10
+    },
+    "environment_check": {
+      "status": "passed",
+      "exit_code": 0
+    },
+    "actual_forward": {
+      "status": "passed",
+      "exit_code": 0,
+      "source_dimensions": [
+        5346,
+        3568
+      ],
+      "processed_dimensions": [
+        512,
+        342
+      ],
+      "backbone_dimensions": [
+        560,
+        378
+      ],
+      "gaussian_count": 350208,
+      "seconds": 17.562,
+      "precision": "float32",
+      "device": "cuda",
+      "peak_allocated_bytes": 4043521024
+    },
+    "installer_fixture": {
+      "status": "passed",
+      "installation_exit_code": 0,
+      "repeat_installation_exit_code": 0,
+      "uninstallation_exit_code": 0,
+      "registration_count": 1,
+      "repeat_install_idempotent": true,
+      "original_startup_bytes_restored": true,
+      "real_user_startup_modified": false,
+      "runtime_check": "passed",
+      "configuration_generated": true
+    },
+    "powershell_parse": {
+      "status": "passed",
+      "script_count": 2
+    }
+  }
+}

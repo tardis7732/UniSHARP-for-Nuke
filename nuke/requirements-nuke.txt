@@ -1,0 +1,14 @@
+# Install PyTorch separately for the target GPU. Install_Nuke17.ps1 uses:
+# torch==2.8.0 torchvision==0.23.0 from the CUDA 12.8 wheel index.
+# This file is for the external Python runtime, never Nuke's embedded Python.
+numpy>=2.0.0
+Pillow>=10.2.0
+scipy>=1.11.0
+opencv-python-headless>=4.9.0
+timm>=1.0.0
+einops>=0.7.0
+huggingface-hub>=0.22.0
+safetensors>=0.4.2
+tqdm>=4.66.0
+# Official checkpoint download helper.
+requests>=2.31.0
